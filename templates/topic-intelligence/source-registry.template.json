@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "topicId": "TOPIC-ID",
+  "sources": [
+    {
+      "id": "SRC-001",
+      "name": "Primary official source",
+      "class": "official-company",
+      "url": "https://example.com/",
+      "geography": "global",
+      "priority": "P0",
+      "cadence": "daily",
+      "discoveryOnly": false,
+      "notes": "Use for direct factual verification."
+    },
+    {
+      "id": "SRC-002",
+      "name": "Discovery source",
+      "class": "media",
+      "url": "https://example.org/",
+      "geography": "global",
+      "priority": "P1",
+      "cadence": "daily",
+      "discoveryOnly": true,
+      "notes": "Use to discover events; seek primary confirmation before material evidence updates."
+    }
+  ]
+}
