@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAt": "YYYY-MM-DD",
+  "topicId": "TOPIC-ID",
+  "deduplication": {
+    "keys": ["sourceUrl", "normalizedSubject", "eventDate"],
+    "rule": "Link existing evidence instead of creating duplicates when the same event is already represented."
+  },
+  "evidence": [
+    {
+      "id": "TOPIC-EV-YYYY-0001",
+      "date": "YYYY-MM-DD",
+      "trackerAddedAt": "YYYY-MM-DD",
+      "geography": "global",
+      "category": "reference-platform",
+      "subject": "Example evidence subject",
+      "normalizedSubject": "example-evidence-subject",
+      "sourceType": "official",
+      "sourceUrl": "https://example.com/source",
+      "additionalSourceUrls": [],
+      "summary": "Concise factual summary limited to what the evidence establishes.",
+      "sourceQuality": "high",
+      "uncertainties": [
+        "State unresolved or vendor-reported claims explicitly."
+      ],
+      "predictionLinks": [
+        {
+          "predictionId": "TOPIC-PRED-001",
+          "effect": "supports",
+          "strength": "medium",
+          "rationale": "Explain why this evidence affects the prediction."
+        }
+      ],
+      "publicationStatus": "tracker-only"
+    }
+  ]
+}
