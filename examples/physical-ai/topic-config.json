@@ -1,0 +1,40 @@
+{
+  "topicId": "physical-ai",
+  "topicName": "Physical AI",
+  "primaryQuestion": "Who becomes the Android of Physical AI?",
+  "objective": "Track structural changes in the Physical AI stack and identify which layers are becoming reusable platforms, control points, or commoditized infrastructure.",
+  "includedDomains": [
+    "robotics",
+    "embodied-ai",
+    "robot-foundation-models",
+    "robot-os-runtime",
+    "reference-robots",
+    "edge-ai-compute",
+    "robot-skills",
+    "robotics-supply-chain",
+    "industrial-deployment"
+  ],
+  "excludedDomains": [
+    "generic-ai-news-without-physical-ai-impact",
+    "consumer-gadget-news-without-platform-significance",
+    "vendor-marketing-without-a-material-change"
+  ],
+  "geographies": ["taiwan", "canada", "global-strategic"],
+  "audience": ["technology-strategy", "product", "business-development", "investors", "advanced-manufacturing"],
+  "taxonomy": [
+    "foundation-model",
+    "runtime-middleware",
+    "edge-compute",
+    "robot-body",
+    "capability-interface",
+    "robot-skills",
+    "agent-layer",
+    "vertical-application",
+    "reference-platform",
+    "supply-chain"
+  ],
+  "publicationTargets": {
+    "signals": "flypigai.ca/industry-signals",
+    "insights": "flypigai.ca/insights/physical-ai-modularization"
+  }
+}
