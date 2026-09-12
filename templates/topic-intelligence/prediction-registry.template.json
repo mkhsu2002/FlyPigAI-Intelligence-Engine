@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "updatedAt": "YYYY-MM-DD",
+  "topicId": "TOPIC-ID",
+  "predictions": [
+    {
+      "id": "TOPIC-PRED-001",
+      "originalPrediction": "Write one falsifiable prediction that can later be supported, weakened or invalidated.",
+      "firstPublishedAt": "YYYY-MM-DD",
+      "initialConfidence": 0.60,
+      "currentConfidence": 0.60,
+      "status": "active",
+      "supportingEvidenceIds": [],
+      "weakeningEvidenceIds": [],
+      "invalidatingEvidenceIds": [],
+      "falsifiers": [
+        "Define at least one observable condition that would materially weaken or invalidate this prediction."
+      ],
+      "reviewHistory": [
+        {
+          "date": "YYYY-MM-DD",
+          "confidenceBefore": 0.60,
+          "confidenceAfter": 0.60,
+          "reason": "Initial registration"
+        }
+      ]
+    }
+  ]
+}
