@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "1.0",
+  "topicId": "TOPIC-ID",
+  "topicName": "Topic Name",
+  "centralQuestion": "What is the strategic question this intelligence system is trying to answer?",
+  "scope": {
+    "included": [
+      "Define the market, technology, policy or business domains that belong in scope"
+    ],
+    "excluded": [
+      "Explicitly list adjacent topics that should not be collected"
+    ]
+  },
+  "geographies": ["global"],
+  "taxonomy": [
+    "technology",
+    "platform",
+    "commercialization",
+    "supply-chain",
+    "policy",
+    "deployment"
+  ],
+  "evidenceCategories": [
+    "product-launch",
+    "reference-platform",
+    "deployment",
+    "commercialization",
+    "standard-interface",
+    "partnership",
+    "procurement",
+    "regulation",
+    "counter-evidence"
+  ],
+  "preferredSourceTypes": [
+    "official-company",
+    "government",
+    "regulator",
+    "standards-body",
+    "paper",
+    "university-lab"
+  ],
+  "audience": ["strategy", "operators", "investors", "technical-business"],
+  "publicationTargets": [
+    {
+      "name": "Primary Insights Site",
+      "type": "website",
+      "repository": "owner/repo",
+      "path": "content/insights"
+    }
+  ],
+  "signalAcceptanceRule": "Retain only events that materially change the topic model, a registered prediction, commercialization state, platform control point, or implementation evidence."
+}
