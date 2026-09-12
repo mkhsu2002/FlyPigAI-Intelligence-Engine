@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "topicId": "TOPIC-ID",
+  "jobs": [
+    {
+      "id": "collector-primary",
+      "role": "collector",
+      "cadence": "daily",
+      "runtime": "chatgpt-scheduler-or-agent",
+      "inputs": ["topic-config.json", "source-registry.json"],
+      "outputs": ["candidate signals or approved event store"],
+      "idempotency": ["source URL", "event date", "normalized subject"],
+      "failureAction": "no-op and report only if material"
+    },
+    {
+      "id": "publisher",
+      "role": "publisher",
+      "cadence": "daily",
+      "runtime": "chatgpt-scheduler-or-agent",
+      "inputs": ["approved signals", "publication-policy.json"],
+      "outputs": ["structured article content"],
+      "idempotency": ["event ID", "canonical slug"],
+      "failureAction": "hold on high risk; never force publish"
+    },
+    {
+      "id": "audit",
+      "role": "audit",
+      "cadence": "daily-or-event-driven",
+      "runtime": "chatgpt-scheduler-or-agent",
+      "inputs": ["new or materially modified public content"],
+      "outputs": ["risk metadata", "hold or highlight action"],
+      "failureAction": "leave last known safe state unchanged"
+    },
+    {
+      "id": "thesis-engine",
+      "role": "thesis-review",
+      "cadence": "weekly",
+      "runtime": "chatgpt-scheduler-or-agent",
+      "inputs": ["evidence-tracker.json", "prediction-registry.json"],
+      "outputs": ["confidence changes", "new evidence links", "publication decision", "watchlist"],
+      "failureAction": "do not mutate predictions when evidence is incomplete"
+    },
+    {
+      "id": "validation-build-deploy",
+      "role": "deterministic-ci",
+      "cadence": "on-change",
+      "runtime": "github-actions",
+      "inputs": ["repository changes"],
+      "outputs": ["validation", "build", "deploy"],
+      "failureAction": "block deployment"
+    }
+  ]
+}
