@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "topicId": "TOPIC-ID",
+  "publicLanguage": "en-CA",
+  "editorialMode": "independent analysis",
+  "publicationGate": {
+    "publishOnlyWhen": [
+      "thesis materially changes",
+      "major uncertainty is resolved",
+      "counter-evidence changes confidence",
+      "multiple independent signals reveal a structural pattern",
+      "a prediction crosses a material confidence threshold",
+      "a falsifier is activated",
+      "a defensible new prediction is justified"
+    ],
+    "trackerOnlyWhen": [
+      "new event is routine",
+      "signal is duplicative",
+      "evidence does not change the topic model",
+      "source quality is insufficient"
+    ]
+  },
+  "riskModel": {
+    "low": "Supported and appropriately qualified.",
+    "medium": "May publish only with explicit attribution, uncertainty, or source conflict disclosure.",
+    "high": "Hold publication until corrected or independently resolved."
+  },
+  "requiredChecks": [
+    "source-to-claim fit",
+    "roadmap versus availability wording",
+    "vendor performance attribution",
+    "unsupported pricing/customer/partnership/benchmark claims",
+    "source conflicts",
+    "copyright and close-paraphrase risk",
+    "trademark or endorsement ambiguity",
+    "media-rights evidence",
+    "counter-evidence",
+    "substantive novelty beyond existing articles"
+  ]
+}
