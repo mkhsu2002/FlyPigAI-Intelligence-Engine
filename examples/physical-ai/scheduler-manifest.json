@@ -1,0 +1,65 @@
+{
+  "topicId": "physical-ai",
+  "jobs": [
+    {
+      "jobId": "taiwan-signal-collector",
+      "class": "collector",
+      "recommendedRuntime": "agent-scheduler",
+      "cadence": "daily",
+      "purpose": "Collect new Taiwan-side Physical AI and Edge AI supply-side events from approved official sources.",
+      "writes": ["raw-signal-store"],
+      "idempotencyKey": "official-source-url+event-date+normalized-subject",
+      "failureMode": "no-write-and-report-only-if-material"
+    },
+    {
+      "jobId": "canada-signal-collector",
+      "class": "collector",
+      "recommendedRuntime": "agent-scheduler",
+      "cadence": "daily",
+      "purpose": "Collect Canadian Physical AI, robotics, autonomy, deployment, procurement and commercialization events.",
+      "writes": ["raw-signal-store"],
+      "idempotencyKey": "official-source-url+event-date+normalized-subject",
+      "failureMode": "no-write-and-report-only-if-material"
+    },
+    {
+      "jobId": "signal-publisher",
+      "class": "publisher",
+      "recommendedRuntime": "agent-scheduler",
+      "cadence": "daily-or-queue-driven",
+      "purpose": "Publish eligible reviewed signals as original English industry reporting after source verification and risk audit.",
+      "writes": ["published-signal-content"],
+      "idempotencyKey": "event-id",
+      "failureMode": "hold"
+    },
+    {
+      "jobId": "signal-risk-audit",
+      "class": "audit",
+      "recommendedRuntime": "agent-scheduler",
+      "cadence": "daily",
+      "purpose": "Audit new or materially changed signal articles for factual, source, rights and misleading-claim risk.",
+      "writes": ["audit-metadata", "publication-hold-status"],
+      "idempotencyKey": "content-hash+audit-policy-version",
+      "failureMode": "fail-safe-hold-on-high-risk"
+    },
+    {
+      "jobId": "physical-ai-thesis-engine",
+      "class": "thesis-engine",
+      "recommendedRuntime": "agent-scheduler",
+      "cadence": "weekly",
+      "purpose": "Review Taiwan, Canada and global strategic signals; promote material evidence; update prediction confidence; evaluate publication gates.",
+      "writes": ["evidence-tracker", "prediction-registry", "insights-content-when-gated"],
+      "idempotencyKey": "research-window+source-set+registry-version",
+      "failureMode": "preserve-existing-state-and-no-publish"
+    },
+    {
+      "jobId": "validate-build-deploy",
+      "class": "deterministic-ci",
+      "recommendedRuntime": "github-actions",
+      "cadence": "on-push",
+      "purpose": "Validate schemas, run tests, build the site and deploy only validated content.",
+      "writes": ["build-artifacts", "deployment"],
+      "idempotencyKey": "commit-sha",
+      "failureMode": "block-deployment"
+    }
+  ]
+}
